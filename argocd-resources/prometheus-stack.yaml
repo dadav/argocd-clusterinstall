@@ -1,8 +1,8 @@
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: prometheus
-  namespace: argocd      
 spec:
   destination:
     namespace: monitoring
@@ -48,13 +48,13 @@ spec:
                 access: proxy
                 editable: false
                 url: http://tempo-gateway.monitoring:80
-          sidecar:                              
+          sidecar:
             dashboards:
               enabled: true                        # To enable dashboards as configMaps automatically picked up by Grafana
               label: grafana_dashboard             # Label the configMaps should have in order to be added
               folder: /tmp/dashboards
               searchNamespace: ALL                 # To look for dashboard configMaps in all namespaces
-        
+
   syncPolicy:
     automated:
       prune: true

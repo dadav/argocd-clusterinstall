@@ -1,0 +1,7 @@
+---
+namespace: argocd
+resources:
+  - prometheus-stack-crds.yaml
+  - prometheus-stack.yaml
+  - teleport.yaml
+  - trivy-operator.yaml
